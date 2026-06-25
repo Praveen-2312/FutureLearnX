@@ -21,8 +21,14 @@
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.enroll-btn:hover {
+  background: #1d4ed8;
 }
 
 .course-detail iframe {
   border-radius: 12px;
+  margin-top: 20px;
 }

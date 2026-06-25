@@ -7,9 +7,24 @@ function Dashboard() {
       localStorage.getItem("enrolledCourses")
     ) || [];
 
-  const progress = enrolled.length
-    ? Math.min(enrolled.length * 20, 100)
-    : 0;
+  const progress =
+    enrolled.length > 0
+      ? Math.min(enrolled.length * 20, 100)
+      : 0;
+
+  const removeCourse = (id) => {
+    const updatedCourses =
+      enrolled.filter(
+        (course) => course.id !== id
+      );
+
+    localStorage.setItem(
+      "enrolledCourses",
+      JSON.stringify(updatedCourses)
+    );
+
+    window.location.reload();
+  };
 
   return (
     <div className="dashboard">
@@ -23,11 +38,16 @@ function Dashboard() {
 
         <div className="card">
           <h2>{progress}%</h2>
-          <p>Learning Progress</p>
+          <p>Completion</p>
+        </div>
+
+        <div className="card">
+          <h2>120+</h2>
+          <p>Learning Hours</p>
         </div>
       </div>
 
-      <h2>Progress Tracker</h2>
+      <h2>Learning Progress</h2>
 
       <ProgressBar progress={progress} />
 
@@ -36,15 +56,26 @@ function Dashboard() {
       </h2>
 
       {enrolled.length === 0 ? (
-        <p>No Courses Enrolled Yet</p>
+        <p>No Courses Enrolled Yet.</p>
       ) : (
         enrolled.map((course) => (
           <div
             key={course.id}
             className="course-item"
           >
-            <h3>{course.title}</h3>
-            <p>{course.instructor}</p>
+            <div>
+              <h3>{course.title}</h3>
+              <p>{course.instructor}</p>
+            </div>
+
+            <button
+              className="remove-btn"
+              onClick={() =>
+                removeCourse(course.id)
+              }
+            >
+              Remove
+            </button>
           </div>
         ))
       )}

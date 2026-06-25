@@ -10,14 +10,22 @@
   display: flex;
   gap: 20px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .card {
   flex: 1;
+  min-width: 220px;
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 15px;
   background: white;
-  box-shadow: 0 3px 10px rgba(0,0,0,.1);
+  box-shadow: 0 3px 12px rgba(0,0,0,.1);
+  text-align: center;
+}
+
+.card h2 {
+  color: #2563eb;
+  margin-bottom: 10px;
 }
 
 .progress-container {
@@ -35,13 +43,43 @@
   background: #2563eb;
   color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.section-title {
+  margin-bottom: 20px;
 }
 
 .course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   padding: 20px;
   margin-bottom: 15px;
-  border-radius: 10px;
+
+  border-radius: 12px;
   background: #f8fafc;
+}
+
+.remove-btn {
+  padding: 10px 15px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .course-item {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
 }

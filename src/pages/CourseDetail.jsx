@@ -5,22 +5,33 @@ import "../styles/course.css";
 function CourseDetail() {
   const { id } = useParams();
 
-  const course =
-    courses.find(
-      (c) => c.id === Number(id)
-    );
+  const course = courses.find(
+    (c) => c.id === Number(id)
+  );
 
   if (!course) {
-    return <h1>Course Not Found</h1>;
+    return (
+      <div className="course-detail">
+        <h1>Course Not Found</h1>
+      </div>
+    );
   }
 
   const handleEnroll = () => {
     const enrolled =
       JSON.parse(
-        localStorage.getItem(
-          "enrolledCourses"
-        )
+        localStorage.getItem("enrolledCourses")
       ) || [];
+
+    const alreadyEnrolled =
+      enrolled.find(
+        (item) => item.id === course.id
+      );
+
+    if (alreadyEnrolled) {
+      alert("Course already enrolled!");
+      return;
+    }
 
     enrolled.push(course);
 
@@ -36,19 +47,27 @@ function CourseDetail() {
     <div className="course-detail">
       <h1>{course.title}</h1>
 
-      <p>{course.description}</p>
-
       <p>
-        Instructor:
-        {" "}
+        <strong>Instructor:</strong>{" "}
         {course.instructor}
       </p>
 
       <p>
-        Duration:
-        {" "}
+        <strong>Category:</strong>{" "}
+        {course.category}
+      </p>
+
+      <p>
+        <strong>Duration:</strong>{" "}
         {course.duration}
       </p>
+
+      <p>
+        <strong>Students:</strong>{" "}
+        {course.students}
+      </p>
+
+      <p>{course.description}</p>
 
       <button
         className="enroll-btn"
@@ -62,6 +81,8 @@ function CourseDetail() {
         height="500"
         src={`https://www.youtube.com/embed/${course.youtubeId}`}
         title={course.title}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     </div>

@@ -3,29 +3,35 @@ import { Link } from "react-router-dom";
 function CourseCard({ course }) {
   return (
     <div className="course-card">
-      <h3>{course.title}</h3>
+      <div className="course-content">
+        <h3>{course.title}</h3>
 
-      <p>
-        Instructor: {course.instructor}
-      </p>
+        <p>
+          <strong>Instructor:</strong>{" "}
+          {course.instructor}
+        </p>
 
-      <p>
-        Category: {course.category}
-      </p>
+        <p>
+          <strong>Category:</strong>{" "}
+          {course.category}
+        </p>
 
-      <p>
-        Duration: {course.duration}
-      </p>
+        <p>
+          <strong>Duration:</strong>{" "}
+          {course.duration}
+        </p>
 
-      <p>
-        Students: {course.students}
-      </p>
+        <p>
+          <strong>Students:</strong>{" "}
+          {course.students}
+        </p>
 
-      <Link to={`/courses/${course.id}`}>
-        <button>
-          View Course
-        </button>
-      </Link>
+        <Link to={`/courses/${course.id}`}>
+          <button className="view-btn">
+            View Course
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
