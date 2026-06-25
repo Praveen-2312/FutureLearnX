@@ -1,0 +1,28 @@
+.course-detail {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.course-detail h1 {
+  margin-bottom: 20px;
+}
+
+.course-detail p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.enroll-btn {
+  padding: 12px 25px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.course-detail iframe {
+  border-radius: 12px;
+}
