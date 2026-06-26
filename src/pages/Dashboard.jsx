@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
 
 function Dashboard() {
-  const [enrolledCourses, setEnrolledCourses] = useState([]);
-
-  useEffect(() => {
-    const storedCourses =
-      JSON.parse(localStorage.getItem("enrolledCourses")) || [];
-
-    setEnrolledCourses(storedCourses);
-  }, []);
+  const [enrolledCourses, setEnrolledCourses] = useState(() => {
+    return (
+      JSON.parse(localStorage.getItem("enrolledCourses")) || []
+    );
+  });
 
   const removeCourse = (id) => {
     const updatedCourses = enrolledCourses.filter(
@@ -25,7 +22,9 @@ function Dashboard() {
     setEnrolledCourses(updatedCourses);
   };
 
-  const completedCourses = Math.floor(enrolledCourses.length * 0.4);
+  const completedCourses = Math.floor(
+    enrolledCourses.length * 0.4
+  );
 
   const progress =
     enrolledCourses.length === 0
@@ -36,7 +35,6 @@ function Dashboard() {
 
   return (
     <div className="dashboard-page">
-      {/* Welcome Banner */}
       <section className="dashboard-banner">
         <h1>🎓 Welcome to Your Dashboard</h1>
 
@@ -46,7 +44,6 @@ function Dashboard() {
         </p>
       </section>
 
-      {/* Statistics */}
       <section className="stats-grid">
         <div className="dashboard-card">
           <h2>{enrolledCourses.length}</h2>
@@ -69,7 +66,6 @@ function Dashboard() {
         </div>
       </section>
 
-      {/* Progress */}
       <section className="progress-section">
         <h2>Your Learning Progress</h2>
 
@@ -83,7 +79,6 @@ function Dashboard() {
         <p>{progress}% Completed</p>
       </section>
 
-      {/* Courses */}
       <section className="dashboard-courses">
         <h2>My Courses</h2>
 
@@ -119,9 +114,7 @@ function Dashboard() {
 
                 <button
                   className="remove-btn"
-                  onClick={() =>
-                    removeCourse(course.id)
-                  }
+                  onClick={() => removeCourse(course.id)}
                 >
                   Remove Course
                 </button>
@@ -131,7 +124,6 @@ function Dashboard() {
         )}
       </section>
 
-      {/* Goals */}
       <section className="goal-section">
         <h2>Learning Goals</h2>
 
