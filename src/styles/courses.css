@@ -1,60 +1,301 @@
+/* ===========================
+   COURSES PAGE
+=========================== */
+
 .courses-page {
-  padding: 50px 10%;
+  min-height: 100vh;
+  background: #f8fafc;
 }
 
-.courses-header {
+/* ===========================
+   HERO
+=========================== */
+
+.courses-hero {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
   text-align: center;
-  margin-bottom: 40px;
+  padding: 80px 10%;
 }
 
-.courses-header h1 {
-  margin-bottom: 10px;
+.courses-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
-.courses-header p {
-  color: #64748b;
+.courses-hero p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,.9);
 }
 
-.filter-section {
+/* ===========================
+   FILTER SECTION
+=========================== */
+
+.courses-filter {
+  width: 90%;
+  max-width: 1100px;
+
+  margin: -40px auto 50px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+
   display: flex;
-  gap: 15px;
+  gap: 20px;
+
+  padding: 25px;
+
   justify-content: center;
-  margin-bottom: 30px;
+  align-items: center;
+
   flex-wrap: wrap;
 }
 
-.filter-section input,
-.filter-section select {
-  padding: 12px;
+.courses-filter input,
+.courses-filter select {
+
+  flex: 1;
+
   min-width: 250px;
 
+  padding: 15px;
+
   border: 1px solid #ddd;
-  border-radius: 8px;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
 }
+
+.courses-filter input:focus,
+.courses-filter select:focus {
+
+  outline: none;
+
+  border-color: #2563eb;
+}
+
+/* ===========================
+   COURSE COUNT
+=========================== */
 
 .course-count {
-  text-align: center;
+
+  width: 90%;
+
+  margin: auto;
+
   margin-bottom: 30px;
-  font-weight: bold;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  color: #475569;
 }
 
+/* ===========================
+   COURSE GRID
+=========================== */
+
 .course-grid {
+
+  width: 90%;
+
+  margin: auto;
+
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
+  repeat(auto-fit, minmax(300px,1fr));
 
-  gap: 25px;
+  gap: 30px;
+
+  padding-bottom: 80px;
 }
 
-@media (max-width: 768px) {
-  .filter-section {
-    flex-direction: column;
-    align-items: center;
-  }
+/* ===========================
+   COURSE CARD
+=========================== */
 
-  .filter-section input,
-  .filter-section select {
-    width: 100%;
-  }
+.course-card {
+
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+
+  transition: .3s;
+}
+
+.course-card:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow: 0 18px 35px rgba(0,0,0,.15);
+}
+
+.course-thumbnail {
+
+  width: 100%;
+
+  height: 200px;
+
+  object-fit: cover;
+}
+
+.course-content {
+
+  padding: 20px;
+}
+
+.course-content h3 {
+
+  margin-bottom: 15px;
+
+  color: #0f172a;
+}
+
+.course-content p {
+
+  margin: 8px 0;
+
+  color: #64748b;
+}
+
+.view-btn {
+
+  margin-top: 20px;
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.view-btn:hover {
+
+  background: #1d4ed8;
+}
+
+/* ===========================
+   EMPTY STATE
+=========================== */
+
+.no-results {
+
+  width: 100%;
+
+  text-align: center;
+
+  padding: 60px;
+}
+
+.no-results h2 {
+
+  color: #2563eb;
+
+  margin-bottom: 10px;
+}
+
+/* ===========================
+   DARK MODE
+=========================== */
+
+body.dark-theme .courses-page {
+
+  background: #0f172a;
+}
+
+body.dark-theme .courses-filter {
+
+  background: #1e293b;
+}
+
+body.dark-theme .courses-filter input,
+body.dark-theme .courses-filter select {
+
+  background: #334155;
+
+  color: white;
+
+  border: 1px solid #475569;
+}
+
+body.dark-theme .course-card {
+
+  background: #1e293b;
+}
+
+body.dark-theme .course-content h3 {
+
+  color: white;
+}
+
+body.dark-theme .course-content p {
+
+  color: #cbd5e1;
+}
+
+body.dark-theme .course-count {
+
+  color: white;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.courses-hero h1{
+
+font-size:2.2rem;
+
+}
+
+.courses-filter{
+
+flex-direction:column;
+
+padding:20px;
+
+}
+
+.courses-filter input,
+.courses-filter select{
+
+width:100%;
+
+}
+
+.course-grid{
+
+grid-template-columns:1fr;
+
+}
+
 }

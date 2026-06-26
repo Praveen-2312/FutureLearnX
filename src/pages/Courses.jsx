@@ -1,11 +1,21 @@
 import { useState } from "react";
-import courses from "../data/courses";
 import CourseCard from "../components/CourseCard";
+import courses from "../data/courses";
 import "../styles/courses.css";
 
 function Courses() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+
+  const categories = [
+    "All",
+    "Web Development",
+    "Programming",
+    "Artificial Intelligence",
+    "Data Science",
+    "Cyber Security",
+    "UI/UX Design",
+  ];
 
   const filteredCourses = courses.filter((course) => {
     const matchesSearch = course.title
@@ -21,23 +31,23 @@ function Courses() {
 
   return (
     <div className="courses-page">
-      <div className="courses-header">
-        <h1>Explore Courses</h1>
+      {/* Header */}
+      <section className="courses-hero">
+        <h1>Explore Our Courses</h1>
 
         <p>
-          Browse our collection of curated
-          learning resources.
+          Learn in-demand skills from carefully selected
+          YouTube courses and begin your journey today.
         </p>
-      </div>
+      </section>
 
-      <div className="filter-section">
+      {/* Search & Filter */}
+      <section className="courses-filter">
         <input
           type="text"
-          placeholder="Search courses..."
+          placeholder="🔍 Search courses..."
           value={search}
-          onChange={(e) =>
-            setSearch(e.target.value)
-          }
+          onChange={(e) => setSearch(e.target.value)}
         />
 
         <select
@@ -46,37 +56,25 @@ function Courses() {
             setCategory(e.target.value)
           }
         >
-          <option value="All">
-            All Categories
-          </option>
-
-          <option value="Programming">
-            Programming
-          </option>
-
-          <option value="Web Development">
-            Web Development
-          </option>
-
-          <option value="Artificial Intelligence">
-            Artificial Intelligence
-          </option>
-
-          <option value="Design">
-            Design
-          </option>
-
-          <option value="Cyber Security">
-            Cyber Security
-          </option>
+          {categories.map((item) => (
+            <option
+              key={item}
+              value={item}
+            >
+              {item}
+            </option>
+          ))}
         </select>
-      </div>
+      </section>
 
+      {/* Results */}
       <div className="course-count">
-        Showing {filteredCourses.length} Courses
+        Showing {filteredCourses.length} course
+        {filteredCourses.length !== 1 ? "s" : ""}
       </div>
 
-      <div className="course-grid">
+      {/* Course Grid */}
+      <section className="course-grid">
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course) => (
             <CourseCard
@@ -85,9 +83,16 @@ function Courses() {
             />
           ))
         ) : (
-          <p>No courses found.</p>
+          <div className="no-results">
+            <h2>No Courses Found</h2>
+
+            <p>
+              Try searching with another keyword
+              or choose a different category.
+            </p>
+          </div>
         )}
-      </div>
+      </section>
     </div>
   );
 }
