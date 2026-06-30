@@ -1,6 +1,6 @@
-/* ==========================================
-   FUTURELEARNX DASHBOARD
-========================================== */
+/* =========================================================
+   DASHBOARD PAGE
+========================================================= */
 
 .dashboard-page {
   min-height: 100vh;
@@ -8,121 +8,61 @@
   padding-bottom: 80px;
 }
 
-/* ==========================================
-   DASHBOARD BANNER
-========================================== */
+/* ================= HERO ================= */
 
-.dashboard-banner {
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+.dashboard-hero {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: white;
   text-align: center;
-  padding: 70px 10%;
+  padding: 80px 20px;
 }
 
-.dashboard-banner h1 {
-  font-size: 3rem;
+.dashboard-hero h1 {
+  font-size: 2.8rem;
   margin-bottom: 15px;
 }
 
-.dashboard-banner p {
-  max-width: 700px;
-  margin: auto;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+.dashboard-hero p {
+  font-size: 1.05rem;
+  opacity: 0.95;
 }
 
-/* ==========================================
-   STATISTICS
-========================================== */
+/* ================= STATS ================= */
 
-.stats-grid {
+.dashboard-stats {
   width: 90%;
   max-width: 1200px;
   margin: -40px auto 50px;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
   gap: 25px;
 }
 
-.dashboard-card {
+.stat-box {
   background: white;
+  border-radius: 18px;
   padding: 30px;
   text-align: center;
-  border-radius: 18px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
   transition: 0.3s;
 }
 
-.dashboard-card:hover {
-  transform: translateY(-6px);
+.stat-box:hover {
+  transform: translateY(-8px);
 }
 
-.dashboard-card h2 {
-  font-size: 2.5rem;
+.stat-box h2 {
   color: #2563eb;
+  font-size: 2.2rem;
   margin-bottom: 10px;
 }
 
-.dashboard-card p {
+.stat-box p {
   color: #64748b;
-  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-/* ==========================================
-   PROGRESS
-========================================== */
-
-.progress-section {
-  width: 90%;
-  max-width: 900px;
-
-  margin: auto;
-  margin-bottom: 60px;
-
-  background: white;
-
-  padding: 35px;
-
-  border-radius: 20px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.progress-section h2 {
-  margin-bottom: 25px;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 18px;
-
-  background: #e2e8f0;
-
-  border-radius: 30px;
-
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-
-  background: linear-gradient(90deg, #22c55e, #16a34a);
-
-  transition: width 0.5s ease;
-}
-
-.progress-section p {
-  margin-top: 15px;
-  font-weight: 600;
-}
-
-/* ==========================================
-   MY COURSES
-========================================== */
+/* ================= COURSES ================= */
 
 .dashboard-courses {
   width: 90%;
@@ -132,180 +72,203 @@
 
 .dashboard-courses h2 {
   margin-bottom: 30px;
+  color: #0f172a;
 }
 
-.dashboard-course-grid {
+.dashboard-grid {
   display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
 }
 
-.dashboard-course-card {
+.dashboard-card {
   background: white;
-
-  border-radius: 18px;
-
+  border-radius: 20px;
   overflow: hidden;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
   transition: 0.3s;
 }
 
-.dashboard-course-card:hover {
-  transform: translateY(-6px);
+.dashboard-card:hover {
+  transform: translateY(-8px);
 }
 
-.dashboard-course-card img {
-  width: 100%;
+.dashboard-image {
   height: 180px;
-  object-fit: cover;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  color: white;
 }
 
-.dashboard-course-card h3 {
-  padding: 20px 20px 5px;
+.dashboard-content {
+  padding: 25px;
 }
 
-.dashboard-course-card p {
-  padding: 0 20px 15px;
+.dashboard-content h3 {
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.dashboard-content p {
   color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 50px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  border-radius: 50px;
+}
+
+.dashboard-content span {
+  font-size: 0.9rem;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* ================= BUTTONS ================= */
+
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.dashboard-btn,
+.remove-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.dashboard-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.dashboard-btn:hover {
+  background: #1d4ed8;
 }
 
 .remove-btn {
-  margin: 0 20px 20px;
-
-  width: calc(100% - 40px);
-
-  padding: 12px;
-
-  border: none;
-
-  border-radius: 10px;
-
   background: #ef4444;
-
   color: white;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.3s;
 }
 
 .remove-btn:hover {
   background: #dc2626;
 }
 
-/* ==========================================
-   EMPTY STATE
-========================================== */
+/* ================= EMPTY ================= */
 
 .empty-dashboard {
-  background: white;
-
   text-align: center;
-
-  padding: 60px;
-
+  background: white;
+  padding: 60px 30px;
   border-radius: 20px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
 }
 
 .empty-dashboard h3 {
   margin-bottom: 15px;
 }
 
-.browse-btn {
-  margin-top: 25px;
-
-  padding: 14px 30px;
-
-  border: none;
-
-  border-radius: 10px;
-
-  background: #2563eb;
-
-  color: white;
-
-  font-size: 1rem;
-
-  cursor: pointer;
+.empty-dashboard p {
+  margin-bottom: 25px;
+  color: #64748b;
 }
 
-.browse-btn:hover {
-  background: #1d4ed8;
-}
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
 
-/* ==========================================
-   GOALS
-========================================== */
-
-.goal-section {
+.achievement-section {
   width: 90%;
   max-width: 1200px;
-
   margin: 80px auto 0;
 }
 
-.goal-section h2 {
+.achievement-section h2 {
+  color: #0f172a;
   margin-bottom: 30px;
 }
 
-.goal-grid {
+.achievement-grid {
   display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
 }
 
-.goal-card {
+.achievement-card {
   background: white;
-
-  padding: 30px;
-
-  border-radius: 18px;
-
+  border-radius: 20px;
+  padding: 35px 20px;
   text-align: center;
-
-  font-size: 1.05rem;
-
-  font-weight: 600;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-
-  transition: 0.3s;
+  font-size: 3rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
 
-.goal-card:hover {
-  transform: translateY(-5px);
+.achievement-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.15);
 }
 
-/* ==========================================
+.achievement-card h4 {
+  margin-top: 18px;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+/* =========================================================
    DARK MODE
-========================================== */
+========================================================= */
 
 body.dark-theme .dashboard-page {
-  background: #0f172a;
+  background: #111827;
 }
 
-body.dark-theme .dashboard-card,
-body.dark-theme .progress-section,
-body.dark-theme .dashboard-course-card,
-body.dark-theme .goal-card,
-body.dark-theme .empty-dashboard {
-  background: #1e293b;
+body.dark-theme .dashboard-courses h2,
+body.dark-theme .achievement-section h2 {
   color: white;
 }
 
-body.dark-theme .dashboard-card p,
-body.dark-theme .dashboard-course-card p,
-body.dark-theme .progress-section p {
+body.dark-theme .stat-box,
+body.dark-theme .dashboard-card,
+body.dark-theme .achievement-card,
+body.dark-theme .empty-dashboard {
+  background: #1e293b;
+}
+
+body.dark-theme .dashboard-content h3,
+body.dark-theme .achievement-card h4,
+body.dark-theme .empty-dashboard h3 {
+  color: white;
+}
+
+body.dark-theme .dashboard-content p,
+body.dark-theme .stat-box p,
+body.dark-theme .empty-dashboard p {
   color: #cbd5e1;
 }
 
@@ -313,42 +276,134 @@ body.dark-theme .progress-bar {
   background: #334155;
 }
 
-body.dark-theme .dashboard-courses h2,
-body.dark-theme .goal-section h2,
-body.dark-theme .progress-section h2 {
-  color: white;
-}
-
-/* ==========================================
+/* =========================================================
    RESPONSIVE
-========================================== */
+========================================================= */
 
-@media (max-width: 900px) {
-  .dashboard-banner h1 {
+@media (max-width: 992px) {
+
+  .dashboard-hero h1 {
     font-size: 2.3rem;
   }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
 }
 
 @media (max-width: 768px) {
-  .dashboard-banner {
-    padding: 60px 5%;
+
+  .dashboard-hero {
+    padding: 60px 20px;
   }
 
-  .stats-grid {
-    margin-top: 30px;
-  }
-
-  .progress-section,
-  .dashboard-courses,
-  .goal-section {
-    width: 95%;
-  }
-
-  .dashboard-banner h1 {
+  .dashboard-hero h1 {
     font-size: 2rem;
   }
 
-  .dashboard-banner p {
-    font-size: 1rem;
+  .dashboard-stats {
+    margin-top: -25px;
   }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-btn,
+  .remove-btn {
+    width: 100%;
+  }
+
+  .dashboard-image {
+    height: 150px;
+    font-size: 3.5rem;
+  }
+
+  .achievement-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .dashboard-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-hero p {
+    font-size: 0.95rem;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  .stat-box {
+    padding: 25px 15px;
+  }
+
+  .stat-box h2 {
+    font-size: 2rem;
+  }
+
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    font-size: 2.5rem;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .dashboard-hero {
+    padding: 50px 15px;
+  }
+
+  .dashboard-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-image {
+    height: 130px;
+    font-size: 3rem;
+  }
+
+}
+
+/* =========================================================
+   SMOOTH ANIMATIONS
+========================================================= */
+
+.dashboard-card,
+.stat-box,
+.achievement-card,
+.empty-dashboard {
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
