@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
+import {
+  FaStar,
+  FaClock,
+  FaUserGraduate,
+  FaSignal,
+  FaCertificate,
+  FaArrowRight,
+} from "react-icons/fa";
+
 import courses from "../data/courses";
 import "../styles/featured.css";
 
 function FeaturedCourses() {
-  // Display only the first 6 courses
   const featuredCourses = courses.slice(0, 6);
 
   return (
@@ -11,11 +19,16 @@ function FeaturedCourses() {
       <div className="container">
 
         <div className="section-header">
+          <span className="section-tag">
+            🚀 Most Popular Courses
+          </span>
+
           <h2>Featured Courses</h2>
 
           <p>
-            Start learning with our most popular courses
-            chosen by thousands of students.
+            Learn from industry experts through
+            project-based courses designed to help
+            you build real-world skills.
           </p>
         </div>
 
@@ -23,12 +36,32 @@ function FeaturedCourses() {
 
           {featuredCourses.map((course) => (
 
-            <div className="featured-card" key={course.id}>
+            <div
+              className="featured-card"
+              key={course.id}
+            >
 
-              <img
-                src={course.thumbnail}
-                alt={course.title}
-              />
+              {/* Image */}
+
+              <div className="featured-image">
+
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  loading="lazy"
+                />
+
+                <span className="course-level">
+                  {course.level}
+                </span>
+
+                <span className="course-price">
+                  {course.price}
+                </span>
+
+              </div>
+
+              {/* Content */}
 
               <div className="featured-content">
 
@@ -38,32 +71,67 @@ function FeaturedCourses() {
 
                 <h3>{course.title}</h3>
 
-                <p className="instructor">
-                  👨‍🏫 {course.instructor}
+                <p className="course-description">
+                  {course.description.substring(0, 100)}...
                 </p>
 
-                <div className="course-meta">
+                <div className="instructor">
 
-                  <span>⭐ {course.rating}</span>
-
-                  <span>⏱ {course.duration}</span>
+                  👨‍🏫 {course.instructor}
 
                 </div>
 
                 <div className="course-meta">
 
-                  <span>🎯 {course.level}</span>
+                  <span>
+                    <FaStar />
+                    {course.rating}
+                  </span>
 
-                  <span>👨‍🎓 {course.students}</span>
+                  <span>
+                    <FaClock />
+                    {course.duration}
+                  </span>
 
                 </div>
 
-                <Link
-                  to={`/course/${course.id}`}
-                  className="view-course-btn"
-                >
-                  View Course →
-                </Link>
+                <div className="course-meta">
+
+                  <span>
+                    <FaSignal />
+                    {course.level}
+                  </span>
+
+                  <span>
+                    <FaUserGraduate />
+                    {course.students}
+                  </span>
+
+                </div>
+
+                <div className="course-footer">
+
+                  <span className="certificate">
+
+                    <FaCertificate />
+
+                    {course.certificate
+                      ? " Certificate"
+                      : " No Certificate"}
+
+                  </span>
+
+                  <Link
+                    to={`/course/${course.id}`}
+                    className="view-course-btn"
+                  >
+                    View Course
+
+                    <FaArrowRight />
+
+                  </Link>
+
+                </div>
 
               </div>
 
@@ -79,7 +147,7 @@ function FeaturedCourses() {
             to="/courses"
             className="primary-btn"
           >
-            View All Courses
+            Explore All Courses
           </Link>
 
         </div>

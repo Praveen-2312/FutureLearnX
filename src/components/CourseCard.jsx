@@ -6,7 +6,19 @@ function CourseCard({ course }) {
     <div className="course-card">
       {/* Course Image */}
       <div className="course-image">
-        📚
+        <img
+          src={course.image}
+          alt={course.title}
+          loading="lazy"
+        />
+
+        <span className="course-level">
+          {course.level}
+        </span>
+
+        <span className="course-price">
+          {course.price}
+        </span>
       </div>
 
       {/* Course Content */}
@@ -18,30 +30,48 @@ function CourseCard({ course }) {
         <h3>{course.title}</h3>
 
         <p>
-          {course.description.length > 90
-            ? `${course.description.substring(0, 90)}...`
+          {course.description.length > 110
+            ? `${course.description.substring(0, 110)}...`
             : course.description}
         </p>
 
-        <div className="course-info">
-          <div>
-            <span>👨‍🏫 Instructor</span>
+        <div className="course-info-grid">
+          <div className="info-box">
+            <span>👨‍🏫</span>
+            <small>Instructor</small>
             <strong>{course.instructor}</strong>
           </div>
 
-          <div>
-            <span>👥 Students</span>
+          <div className="info-box">
+            <span>⭐</span>
+            <small>Rating</small>
+            <strong>{course.rating}/5</strong>
+          </div>
+
+          <div className="info-box">
+            <span>👥</span>
+            <small>Students</small>
             <strong>{course.students}</strong>
           </div>
 
-          <div>
-            <span>⏱ Duration</span>
+          <div className="info-box">
+            <span>⏱</span>
+            <small>Duration</small>
             <strong>{course.duration}</strong>
           </div>
 
-          <div>
-            <span>⭐ Rating</span>
-            <strong>4.8 / 5</strong>
+          <div className="info-box">
+            <span>📚</span>
+            <small>Lessons</small>
+            <strong>{course.lessons}</strong>
+          </div>
+
+          <div className="info-box">
+            <span>📜</span>
+            <small>Certificate</small>
+            <strong>
+              {course.certificate ? "Yes" : "No"}
+            </strong>
           </div>
         </div>
 

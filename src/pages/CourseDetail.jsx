@@ -109,27 +109,27 @@ function CourseDetail() {
 
               <div className="info-row">
                 <span>📚 Category</span>
-                <strong>{course.category}</strong>
+                <strong> {course.category}</strong>
               </div>
 
               <div className="info-row">
                 <span>👨‍🏫 Instructor</span>
-                <strong>{course.instructor}</strong>
+                <strong> {course.instructor}</strong>
               </div>
 
               <div className="info-row">
                 <span>👥 Students</span>
-                <strong>{course.students}</strong>
+                <strong> {course.students}</strong>
               </div>
 
               <div className="info-row">
                 <span>⏱ Duration</span>
-                <strong>{course.duration}</strong>
+                <strong> {course.duration}</strong>
               </div>
 
               <div className="info-row">
                 <span>⭐ Rating</span>
-                <strong>4.8 / 5</strong>
+                <strong> 4.8 / 5</strong>
               </div>
 
               <button

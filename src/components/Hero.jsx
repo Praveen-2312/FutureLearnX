@@ -80,7 +80,7 @@ function Hero() {
         <div className="hero-image">
 
           <img
-            src="/hero.png"
+            src="/src/assets/IMAGES/hs.png"
             alt="FutureLearnX Hero"
           />
 

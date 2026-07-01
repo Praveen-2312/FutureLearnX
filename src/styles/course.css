@@ -249,3 +249,133 @@ body.dark-theme .no-course h2 {
     padding: 20px;
   }
 }
+
+/* ==========================================
+   Premium Course Card
+========================================== */
+
+.course-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.08);
+}
+
+.course-level {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  background: #2563eb;
+  color: white;
+
+  padding: 6px 12px;
+
+  border-radius: 30px;
+
+  font-size: .8rem;
+
+  font-weight: 600;
+}
+
+.course-price {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  background: #16a34a;
+  color: white;
+
+  padding: 6px 12px;
+
+  border-radius: 30px;
+
+  font-size: .8rem;
+
+  font-weight: 600;
+}
+
+.course-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.info-box {
+  background: #f8fafc;
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  text-align: center;
+
+  transition: .3s;
+}
+
+.info-box:hover {
+  transform: translateY(-4px);
+  background: #eff6ff;
+}
+
+.info-box span {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.info-box small {
+  display: block;
+  margin: 6px 0;
+  color: #64748b;
+}
+
+.info-box strong {
+  color: #0f172a;
+}
+
+body.dark-theme .info-box {
+  background: #334155;
+}
+
+body.dark-theme .info-box strong {
+  color: white;
+}
+
+body.dark-theme .info-box small {
+  color: #cbd5e1;
+}
+
+@media(max-width:768px){
+
+.course-info-grid{
+grid-template-columns:1fr;
+}
+
+.course-image{
+height:200px;
+}
+
+}
+
+@media(max-width:480px){
+
+.course-image{
+height:180px;
+}
+
+.course-content{
+padding:18px;
+}
+
+}
